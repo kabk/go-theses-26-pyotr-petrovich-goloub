@@ -3,9 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hello kabk</title>
+    
+    <title>choo choo</title>
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/choo-choo16px.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/choo-choo32px.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicons/choo-choo48px.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="167x167" href="/assets/favicons/choo-choo167px.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/favicons/choo-choo180px.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicons/choo-choo192px.png">
+    <link rel="shortcut icon" type="image/png" href="/assets/favicons/choo-choo180px.png" />
+
+    <style>
+        :root {
+            --paper: #f7f3e8;
+            --ink: #1f1b16;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Times New Roman", Times, serif;
+            color: var(--ink);
+            background: var(--paper);
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 20vh;
+            padding-inline: 20vw;
+            margin-bottom: 70vh;
+
+            section {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            main {
+                gap: 24vh;
+                padding-inline: 6vw;
+                margin-block: 80vh;
+            }
+        }
+
+        h1 {
+            font-style: italic;
+            min-height: 20vh;
+            margin: 2rem 0 0;
+            text-align: center;
+            letter-spacing: 0.02em;
+            font-size: clamp(3rem, 4vw, 12rem);
+        }
+
+        #intro {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: var(--paper);
+            color: var(--ink);
+            display: grid;
+            gap: 2rem;
+            align-content: center;
+            justify-items: center;
+            text-align: center;
+            padding: 10vh 10vw;
+            transition: transform 0.8s ease;
+            will-change: transform;
+        }
+
+        #intro h1 {
+            margin: 0;
+            min-height: auto;
+        }
+
+        #intro p {
+            max-width: 75ch;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        #start-reading {
+            border: 1px solid var(--ink);
+            background: transparent;
+            color: var(--ink);
+            padding: 0.8rem 1.3rem;
+            font: inherit;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        #start-reading[disabled] {
+            opacity: 0.5;
+            cursor: default;
+        }
+
+        #intro.is-leaving {
+            transform: translateY(-105%);
+        }
+
+        .paragraph {
+            position: sticky;
+            top: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        svg .footnote-hotspot {
+            cursor: pointer;
+            pointer-events: all;
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: footnote-hotspot-pulse 1.6s ease-in-out infinite;
+            transition: all 0.1s ease;
+        }
+
+        svg .footnote-hotspot:hover,
+        svg .footnote-hotspot:focus,
+        svg .footnote-hotspot.is-active {
+            animation-play-state: paused;
+        }
+
+        @keyframes footnote-hotspot-pulse {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.2;
+                transform: scale(1.08);
+            }
+        }
+    </style>
 </head>
 <body>
-    hello kabk
+
+    <div id="intro">
+        <h1>Choo Choo</h1>
+        <p>This text focuses on the burden of ontological constraints and touches on a theme of violence that embedded in the act of naming. The machine’s inability to truly name—with its opportunistic, eclectic approach to language—faces human’s nature to take a risk; and asks whether it is precisely the violence, risk, and opportunity that humans take in language that sets them apart from machines. To speak about the paradoxical relation between human language and through the lens of impotence of large language models Author uses handwriting to bring friction for access to the text for a machine. Central to this inquiry is the question of whether risk defines human language, and whether constraint—particularly the restriction of harm—ultimately sterilizes language, raising the provocation of whether an AI that is prevented from causing harm can ever truly speak and give name to things. The primary sources consist of things that the Author found emotionally or intellectually touching circa writing this text, treated as an “archive of affect” i.e. z(i)ettels, while secondary sources include texts that felt tangential or indirectly significant to the topic: Shrek, James Bond, Terminator, Jesus Christ, Smash Mouth — All Star and etc. The research process is based around the introspection; an inward spiraling motion aimed at finding inner connections and answers to things that are external to the Author, who turns himself into an emission centroid. Reflecting on the relation between these activities, the text embraces the idea that “looking inside to understand the outside” may be a schizo-inducing practice that produces unpredictably intriguing and inspiring results, asking whether such unpredictability is precisely what machines are designed to exclude, and whether one’s own instability can function as a counter-method—“an artist poses a question” in a form of a artistic hoax rather than looking for an answer to it.</p>
+        <button id="start-reading" type="button" disabled>Loading...</button>
+    </div>
+
+    <main>
+        
+        <section>
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-1.svg">
+            </div>
+        </section>
+
+        <section>
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-2.svg">
+            </div>
+        </section>
+        
+        <section>
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-3.svg">
+            </div>
+        </section>
+        
+        <section>
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-4.svg">
+            </div>
+        </section>
+        
+        <section>
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-5.svg">
+            </div>
+        </section>
+
+        <section>
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-6.svg">
+            </div>
+        </section>
+        
+        <section>
+            <img src="assets/thesis/onfim.jpg">
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-7.svg">
+            </div>
+        </section>
+    
+        <section>
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-8.svg">
+            </div>
+        </section>
+        
+        <section>
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-9.svg">
+            </div>
+        </section>
+
+        <section>
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-10.svg">
+            </div>
+        </section>
+        
+        <section>
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-11.svg">
+            </div>
+        </section>
+
+        <section>
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-12.svg">
+            </div>
+        </section>
+        
+        <section>
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-13.svg">
+            </div>
+        </section>
+
+        <section>
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-14.svg">
+            </div>
+        </section>
+
+        <section>
+            <div class="paragraph">
+                <img src="assets/thesis/thesis-15.svg">
+            </div>
+        </section>
+        
+
+
+       <h1>
+        P.G.<br>KABK GD<br>'26
+       </h1> 
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/footnote-image-reveal.js"></script>
+    <script src="assets/js/sl-console.js"></script>
 </body>
 </html>
