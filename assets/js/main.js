@@ -251,7 +251,7 @@ function setupIntroOverlay() {
     document.body.style.overflow = 'hidden';
     forceScrollToTop();
     button.disabled = true;
-    button.textContent = 'preparing...';
+    button.textContent = 'writting...';
 
     const waitForStart = new Promise((resolve) => {
         button.addEventListener('click', () => {
@@ -305,4 +305,33 @@ document.addEventListener('DOMContentLoaded', () => {
     initExperience().catch((error) => {
         console.error('[scroll-draw] unexpected init error:', error);
     });
+
+    // Generative title animation (marquee)
+    let titleStr = " choo choo                              ";
+    let trainCooldown = 40;
+    let charQueue = [];
+
+    setInterval(() => {
+        const trackChars = ['_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', 'o', 'ф', 'Y'];
+        let nextChar = '';
+        
+        if (charQueue.length > 0) {
+            nextChar = charQueue.shift();
+        } else {
+            if (trainCooldown > 0) {
+                trainCooldown--;
+                // ensure we don't pick the empty string from trackChars if we need exactly 1 char step, 
+                // but if we do, it acts as a space or just doesn't move it. Let's use a safe fallback:
+                nextChar = trackChars[Math.floor(Math.random() * trackChars.length)] || ' '; 
+            } else {
+                // Time for a train! We reverse it so it feeds out correctly when prepending
+                charQueue = " Choo Choo ".split('').reverse();
+                nextChar = charQueue.shift();
+                trainCooldown = Math.floor(Math.random() * 40) + 40; // Wait 40-80 ticks before next train
+            }
+        }
+        
+        titleStr = nextChar + titleStr.substring(0, titleStr.length - nextChar.length);
+        document.title = titleStr;
+    }, 250);
 });
